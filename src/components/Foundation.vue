@@ -50,7 +50,7 @@ export default {
   display: inherit;
 }
 
-.foundation-structure {
+.foundation-translation {
   margin: auto !important;
 }
 </style>
