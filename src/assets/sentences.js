@@ -1,6 +1,6 @@
 export default [
   {
-    text: "太。。。。。。了",
+    text: "太 + adj. +了",
     value: {
       structure: [
         { key: "太", editable: false, type: "adverb" },
@@ -11,7 +11,7 @@ export default [
     },
   },
   {
-    text: "我是。。。。。。",
+    text: "我是 + noun",
     value: {
       structure: [
         { key: "我", editable: false, type: "noun" },
