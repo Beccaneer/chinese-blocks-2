@@ -13,9 +13,9 @@
         </div>
       </v-row>
       <v-row>
-        <div
-          class="foundation-translation"
-        >{{ $t(`sentence.${sentence.translationKey}`, translations) }}</div>
+        <div class="foundation-translation" v-if="sentence.translationKey">
+          {{ $t(`sentence.${sentence.translationKey}`, translations) }}
+        </div>
       </v-row>
     </v-container>
   </div>
@@ -26,23 +26,23 @@ import Block from "./Block.vue";
 export default {
   name: "Foundation",
   components: {
-    Block
+    Block,
   },
   props: {
     sentence: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   data() {
     return {
-      translations: {}
+      translations: {},
     };
   },
   methods: {
     setEnglish(wordKey, english) {
       this.$set(this.translations, `${wordKey}`, english);
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">
