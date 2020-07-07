@@ -1,13 +1,24 @@
 <template>
   <v-menu open-on-hover bottom offset-y :disabled="!editable">
     <template v-slot:activator="{ on, attrs }">
-      <v-btn outlined x-large class="block" v-bind="attrs" v-on="on" :disabled="!editable">
-        <div class="block-hanzi">{{hanzi}}</div>
-        <div class="block-pinyin">{{pinyin}}</div>
+      <v-btn
+        outlined
+        x-large
+        class="block"
+        v-bind="attrs"
+        v-on="on"
+        :disabled="!editable"
+      >
+        <div class="block-hanzi">{{ hanzi }}</div>
+        <div class="block-pinyin">{{ pinyin }}</div>
       </v-btn>
     </template>
     <v-list>
-      <v-list-item v-for="(item, index) in allWords" :key="index" @click="changeWord(item)">
+      <v-list-item
+        v-for="(item, index) in allWords"
+        :key="index"
+        @click="changeWord(item)"
+      >
         <v-list-item-title>{{ item.hanzi }}</v-list-item-title>
       </v-list-item>
     </v-list>
@@ -23,14 +34,14 @@ export default {
   name: "Block",
   props: {
     wordKey: {
-      type: String
+      type: String,
     },
     editable: {
-      type: Boolean
+      type: Boolean,
     },
     type: {
-      type: String
-    }
+      type: String,
+    },
   },
   data() {
     return {
@@ -40,7 +51,7 @@ export default {
       aux,
       adverb,
       hanzi: "",
-      pinyin: ""
+      pinyin: "",
     };
   },
   methods: {
@@ -67,23 +78,21 @@ export default {
       );
     },
     changeWord(word) {
-      console.log(word);
       this.setHanzi(word);
       this.setPinyin();
       this.setEnglish();
-    }
+    },
   },
   computed: {
     allWords() {
       return this[this.type];
-    }
+    },
   },
   mounted() {
-    console.log("block mount", this.wordKey, this.editable, this.type);
     this.setHanzi();
     this.setPinyin();
     if (this.editable) this.setEnglish();
-  }
+  },
 };
 </script>
 <style scoped lang="scss">

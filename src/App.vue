@@ -6,13 +6,17 @@
       <v-container fluid>
         <v-row align="center" justify="center">
           <v-col cols="2">
-            <v-select :items="sentences" v-model="selectedSentence" label="Select a sentence" />
+            <v-select
+              :items="sentences"
+              v-model="selectedSentence"
+              label="Select a sentence"
+            />
           </v-col>
         </v-row>
         <v-row align="center" justify="center">
           <v-col cols="6">
             <v-row align="center" justify="center">
-              <Foundation :sentence="selectedSentence" :key="selectedSentence" />
+              <Foundation :sentence="selectedSentence" :key="getKey" />
             </v-row>
           </v-col>
         </v-row>
@@ -27,14 +31,18 @@ import sentences from "./assets/sentences";
 export default {
   name: "App",
   components: {
-    Foundation
+    Foundation,
   },
   data() {
     return {
       selectedSentence: { text: null },
-      sentences
+      sentences,
     };
-  }
+  },
+  computed: {
+    getKey() {
+      return JSON.stringify(this.selectedSentence);
+    },
+  },
 };
 </script>
-
