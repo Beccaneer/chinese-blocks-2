@@ -3,11 +3,10 @@
     <template v-slot:activator="{ on, attrs }">
       <v-btn
         outlined
-        x-large
         class="block"
         v-bind="attrs"
         v-on="on"
-        :disabled="!editable"
+        :class="{ editable: editable }"
       >
         <div class="block-hanzi">{{ hanzi }}</div>
         <div class="block-pinyin">{{ pinyin }}</div>
@@ -74,7 +73,9 @@ export default {
       this.$emit(
         "set-english",
         this.wordKey,
-        this[this.type][this.hanzi].english
+        `<span style="border-bottom: 1px dashed black;">${
+          this[this.type][this.hanzi].english
+        }</span>`
       );
     },
     changeWord(word) {
@@ -96,10 +97,25 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Open+Sans&display=swap");
 .block {
   display: inline-block;
+
+  &.editable {
+    border-style: dashed;
+  }
+}
+
+.block-hanzi {
+  font-family: "Ma Shan Zheng", cursive;
+  font-size: 36px;
+}
+
+.block-pinyin {
+  padding-top: 5px;
 }
 </style>
+
 <style lang="scss">
 .v-btn {
   text-transform: none !important;
@@ -107,5 +123,10 @@ export default {
 }
 .v-btn__content {
   flex-direction: column;
+}
+.v-btn:not(.v-btn--round).v-size--default {
+  height: auto !important;
+  min-width: auto !important;
+  padding: 16px !important;
 }
 </style>

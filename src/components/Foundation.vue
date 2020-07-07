@@ -13,9 +13,11 @@
         </div>
       </v-row>
       <v-row>
-        <div class="foundation-translation" v-if="sentence.translationKey">
-          {{ $t(`sentence.${sentence.translationKey}`, translations) }}
-        </div>
+        <div
+          class="foundation-translation"
+          v-if="sentence.translationKey"
+          v-html="$t(`sentence.${sentence.translationKey}`, translations)"
+        ></div>
       </v-row>
     </v-container>
   </div>
@@ -51,6 +53,8 @@ export default {
 }
 
 .foundation-translation {
-  margin: auto !important;
+  margin: auto;
+  padding-top: 16px;
+  font-size: 20px;
 }
 </style>
