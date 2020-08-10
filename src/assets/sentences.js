@@ -21,4 +21,26 @@ export default [
       translationKey: "iAm",
     },
   },
+  {
+    text: "subject + adv1 + adj",
+    value: {
+      structure: [
+        { key: "subject", editable: true, type: "noun" },
+        { key: "adv1", editable: true, type: "adverb" },
+        { key: "adj1", editable: true, type: "adj" },
+      ],
+      translationKey: "subjectIsSomeState",
+    },
+  },
+  {
+    text: "subject + 是 + noun",
+    value: {
+      structure: [
+        { key: "subject", editable: true, type: "noun" },
+        { key: "是", editable: false, type: "verb" },
+        { key: "noun1", editable: true, type: "noun" },
+      ],
+      translationKey: "subjectIsSomething",
+    },
+  },
 ];
