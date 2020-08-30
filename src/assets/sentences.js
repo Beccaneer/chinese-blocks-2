@@ -29,7 +29,7 @@ export default [
         { key: "adv1", editable: true, type: "adverb" },
         { key: "adj1", editable: true, type: "adj" },
       ],
-      translationKey: "subjectIsSomeState",
+      translationKey: "someoneIsSomeState",
     },
   },
   {
@@ -40,7 +40,18 @@ export default [
         { key: "是", editable: false, type: "verb" },
         { key: "noun1", editable: true, type: "noun" },
       ],
-      translationKey: "subjectIsSomething",
+      translationKey: "someoneIsSomething",
+    },
+  },
+  {
+    text: "subject + verb + object",
+    value: {
+      structure: [
+        { key: "subject", editable: true, type: "noun" },
+        { key: "verb", editable: true, type: "verb" },
+        { key: "object", editable: true, type: "noun"},
+      ],
+      translationKey: "someoneDoesSomething",
     },
   },
 ];
